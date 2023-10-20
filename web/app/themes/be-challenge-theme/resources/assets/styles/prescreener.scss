@@ -1,0 +1,124 @@
+* {
+	/*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;*/
+	box-sizing: border-box;
+}
+
+html {
+	position: fixed;
+	height: 100%;
+	overflow: hidden;
+}
+
+body {
+    width: 100vw;
+    height: calc(100vh - 20px);
+    overflow: auto;
+    margin-top:20px;
+    padding-bottom:20px;
+    -webkit-overflow-scrolling: touch;
+}
+
+body::-webkit-scrollbar {
+  	width: 10px;
+}
+ 
+body::-webkit-scrollbar-track {
+  	background:transparent;
+}
+ 
+body::-webkit-scrollbar-thumb {
+  	background:red;
+}
+
+.v-application--wrap {
+    min-height:0;
+}
+
+.v-application {
+	background-color: transparent !important;
+}
+
+.v-application .container--fluid {
+    padding:0 0 12px 0 !important;
+}
+
+.v-application #app {
+	background-color: transparent !important;
+}
+
+.v-application #app .container {
+    padding: 0 10px 0 0 !important;
+}
+
+.v-application .container--fluid #app .container--fluid .row .col  {
+    padding: 0 !important;
+}
+
+.v-application .container--fluid #app .v-sheet  .container--fluid .row .col  {
+    padding: 12px !important;
+}
+
+.v-application #app .container .row {
+    margin: 0 !important;
+}
+
+.v-application #app .screener-page {
+    margin: 0;
+    padding: 0;
+
+    @media (max-width: 681px) {
+        padding:0 12px 0 12px;
+    }
+}
+
+.v-application #app .primary {
+	background-color: #f26d0b !important;
+}
+
+.v-application #app button.primary {
+    background-color: #f26d0b !important;
+    color:#fff !important;
+
+    &:before {
+        display:none;
+    }
+    &:hover {
+        background-color:#f26d0b !important;
+    }
+}
+
+.v-application #app a {
+	color: #f26d0b !important;
+}
+
+.v-application #app a:hover {
+	color: #f26d0b !important;
+	text-decoration: underline;
+}
+
+.v-application .primary--text {
+	color: #f26d0b !important;
+	caret-color: #f26d0b !important;
+}
+
+.v-application a {
+	color: white;
+}
+
+.v-application .v-dialog a, .v-application .v-dialog button span {
+    color: #f26d0b !important;
+}
+
+@media (max-width: 681px) {
+
+    .v-application .container--fluid #app .v-sheet  .container--fluid .row .col  {
+        padding:.5rem 12px !important;
+    }
+
+    .v-application #app .container .row {
+        margin: 0 !important;
+    }
+    .v-application #app .container {
+        padding: 0 !important;
+    }
+}

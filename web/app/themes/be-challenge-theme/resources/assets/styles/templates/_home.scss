@@ -1,0 +1,747 @@
+//
+// Name:            Home
+//
+// Description:     Contains all style definitions concerning basic
+//					structure and layout
+//
+// ========================================================================
+// Component: Home Page
+// ========================================================================
+//
+// Name:            Home
+//
+// Description:     Contains all style definitions concerning basic
+//					structure and layout
+//
+// ========================================================================
+// Component: Home Page
+// ========================================================================
+
+.home {
+
+  &__intro {
+    border-bottom: 30px solid $green-primary;
+    background-color: $white;
+    background-repeat: no-repeat;
+    background-position: 50% center;
+    background-size: cover;
+    overflow: hidden;
+    @include breakmax($mobile) {
+      background-image: none;
+    }
+
+    &__container {
+      @include container-full;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: $gap;
+      @include breakmax($laptop) {
+        grid-template-columns: 1fr 1fr;
+      }
+      @include breakmax($mobile) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    &__copy {
+      @include section_padding;
+      position: relative;
+      z-index: 3;
+    }
+
+    &__image {
+      $overlap: 100px;
+      height: 100%;
+      position: relative;
+      width: 100%;
+      // margin-left: -#{$overlap};
+
+      @include breakmax($mobile){
+        width: 100%;
+        height: 0px;
+        padding-bottom: 100%;
+        position: relative;
+      }
+
+      picture{
+        display: block;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: -#{$overlap};
+        width: calc(45vw + $overlap);
+        height: 100%;
+
+        @include breakmax($laptop){
+          width: 50vw;
+          left: 0;
+        }
+
+        @include breakmax($mobile){
+          width: 100vw;
+          left: -2rem;
+        }
+      }
+      img{
+        object-fit: cover;
+        object-position: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      picture::before{
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        // width: calc(100% + $overlap);
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(to right, rgba(white, 1) 10%, rgba(white, 0) 60%);
+        z-index: 2;
+        @include breakmax($laptop){
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__about {
+    background-color: $aqua-2;
+    // padding-bottom: 20px;
+    @include section_padding();
+    @include breakmin($widescreen) {
+      background-position: 9% top;
+    }
+    @include breakmax($laptop) {
+      background-position: 36% top;
+    }
+    @include breakmax($tablet) {
+      background-position: 47% top;
+    }
+    @include breakmax($mobile) {
+      background-image: none;
+    }
+
+    &__container {
+      @include container;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      @include breakmax($mobile) {
+        flex-wrap: wrap;
+        padding: 0 20px;
+      }
+    }
+
+    h2{
+      padding-bottom: 1em;
+    }
+
+    &__copy {
+      flex: 0 0 635px;
+      max-width: 635px;
+      align-self: center;
+      padding: 40px 150px 50px 0;
+      @include breakmax(1150px) {
+        flex: 0 0 500px;
+        max-width: 500px;
+        padding-right: 35px;
+      }
+      @include breakmax(950px) {
+        flex: 0 0 375px;
+        max-width: 375px;
+      }
+      @include breakmax($tablet) {
+        flex: 0 0 350px;
+        max-width: 350px;
+      }
+      @include breakmax($mobile) {
+        flex: 0 0 100%;
+        width: 100%;
+        max-width: 100%;
+        order: 1;
+        text-align: center;
+        margin-top: 10px;
+        padding: 25px 20px;
+      }
+
+      p {
+        margin: 0 0 20px;
+        @include breakmax($tablet) {
+          @include font-size(16);
+          @include line-height(16, 20);
+        }
+        @include breakmax($mobile) {
+          margin: 0 0 30px;
+        }
+      }
+    }
+
+    &__studies {
+      display: flex;
+      align-items: stretch;
+      flex-wrap: wrap;
+      // width: calc(100% + 100px);
+      // margin: 0 -50px;
+
+      @include breakmax($tablet) {
+        width: 100%;
+        margin: 0;
+      }
+
+      &__item {
+        // padding: 10px 50px 50px;
+        display: grid;
+        gap: $gap;
+        grid-template-columns: 1fr 1fr;
+        @include breakmin($tablet){
+          grid-template-columns: 1fr 2fr;
+        }
+        @include breakmax($mobile){
+          grid-template-columns: 1fr;
+        }
+
+        p:first-of-type{
+          margin-top: 0px;
+          padding-top: 0px;
+        }
+
+        &__logo {
+          margin: 0 auto 20px;
+
+          &__container {
+            text-align: center;
+          }
+        }
+
+        ul {
+          li {
+            margin-bottom: 1em;
+          }
+        }
+
+        @include breakmax($tablet) {
+          flex: 0 0 100%;
+          padding: 10px 0 40px;
+
+          &:first-child {
+            border-right: none;
+          }
+        }
+      }
+    }
+
+    &__disclaimer {
+      font-size: .75em;
+      color: $black;
+      width: 60%;
+      margin-top: 20px;
+
+      @include breakmax($tablet) {
+        width: 100%;
+      }
+    }
+  }
+
+  &__download {
+    padding: 50px 0 45px;
+    background-color: $green-3;
+    background-repeat: no-repeat;
+    background-position: 47% top;
+    @include breakmax($tablet) {
+      padding: 50px 0 40px;
+    }
+    @include breakmax($mobile) {
+      padding: 25px 0 30px;
+      background-image: none;
+    }
+
+    &__container {
+      @include container();
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      @media (max-width: 581px) {
+        padding: 0 !important;
+      }
+    }
+
+    &__image {
+      align-self: flex-end;
+      width: 50%;
+      margin-bottom: -45px;
+      @include breakmax($tablet) {
+        flex: 0 0 100%;
+        width: 100%;
+        order: 2;
+      }
+
+      img {
+        display: block;
+        width: 100%;
+        opacity: 0;
+        transition: opacity .5s ease;
+
+        &.fadein {
+          opacity: 1;
+        }
+
+        &.desktop {
+          display: block;
+          width: 100%;
+
+          @include breakmax($tablet) {
+            width: 110%;
+            max-width: none;
+            float: right;
+          }
+
+          @include breakmax($mobile) {
+            display: none;
+          }
+        }
+
+        &.mobile {
+          display: none;
+          @include breakmax($mobile) {
+            display: block;
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    &__copy {
+      flex: 0 0 40%;
+      max-width: 40%;
+      align-self: center;
+      padding: 40px 0 50px;
+      @include breakmax($tablet) {
+        text-align: center;
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+
+      @media (max-width: 581px) {
+        padding: 0 40px 10px !important;
+      }
+
+      h2 {
+        @include font-medium;
+        @include font-size(28);
+        @include line-height(28, 34);
+        margin: 0 0 20px;
+        @include breakmax($mobile) {
+          @include font-size(24);
+          @include line-height(24, 29);
+        }
+      }
+
+      p {
+        margin: 0 0 30px;
+        @include breakmax($tablet) {
+          @include font-size(16);
+          @include line-height(16, 20);
+        }
+        @include breakmax($mobile) {
+          margin: 0 0 20px;
+        }
+      }
+    }
+  }
+
+  &__why {
+    // background-color: darken($green-1, 5);
+    background-color: $orange;
+    background-repeat: no-repeat;
+    background-position: 51% top;
+    overflow-x: hidden;
+    @include breakmin($widescreen) {
+      background-position: 45% top;
+    }
+    @include breakmax($laptop) {
+      background-position: 41% top;
+    }
+    @include breakmax($tablet) {
+      background-position: 43% top;
+    }
+    @include breakmax($mobile) {
+      background-image: none;
+    }
+
+    &__container {
+      @include container-full;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: $gap;
+      @include breakmax($laptop) {
+        grid-template-columns: 1fr 1fr;
+      }
+      @include breakmax($mobile) {
+        grid-template-columns: 1fr;
+      }
+      @include breakmax($mobile) {
+        flex-wrap: wrap;
+        padding: 0;
+      }
+    }
+
+    &__copy {
+      @include section_padding;
+      position: relative;
+      z-index: 3;
+      // color: $white;
+    }
+
+    &__image {
+      $overlap: 100px;
+      height: 100%;
+      position: relative;
+      width: 100%;
+      // margin-left: -#{$overlap};
+
+      @include breakmax($mobile){
+        width: 100%;
+        height: 0px;
+        padding-bottom: 100%;
+        position: relative;
+      }
+
+      picture, img {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: -#{$overlap};
+        width: calc(45vw + $overlap);
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        max-width: unset;
+
+        @include breakmax($laptop){
+          width: 50vw;
+          left: 0;
+        }
+
+        @include breakmax($mobile){
+          width: 100vw;
+          left: -1rem;
+        }
+        img{
+          left: 0;
+          width: 100%;
+        }
+      }
+      &::before{
+        // $fade-color: darken($green-1, 5);
+        $fade-color: $orange;
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: calc(100% + $overlap);
+        height: 100%;
+        background-image: linear-gradient(to right, rgba($fade-color, 1) 10%, rgba($fade-color, 0) 60%);
+        z-index: 2;
+        object-fit: cover;
+        max-width: unset;
+        @include breakmax($laptop){
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__research {
+    position: relative;
+    background-color: $lime-3;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    @include breakmin($widescreen) {
+      background-position: center;
+    }
+    @include breakmax($laptop) {
+      background-position: 44% center;
+    }
+    @include breakmax($tablet) {
+      background-position: 43% center;
+    }
+
+    &::before {
+      @include breakmax($mobile) {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: block;
+        max-width: 100%;
+      }
+    }
+
+    &::after {
+      @include breakmax($mobile) {
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+        display: block;
+        max-width: 100%;
+      }
+    }
+    @include breakmax($mobile) {
+      background-image: none;
+    }
+
+    &__container {
+      position: relative;
+      @include container();
+      z-index: 10;
+    }
+
+    &__copy {
+      padding: 60px 0;
+      @include breakmax($tablet) {
+        padding: 40px 0 20px;
+      }
+      @include breakmax($mobile) {
+        padding: 25px 0 35px;
+      }
+
+      h2 {
+        margin: 0 0 25px;
+        @include breakmax($mobile) {
+          max-width: 250px;
+          margin: 0 0 10px;
+        }
+      }
+
+      li {
+        margin: 0 0 15px;
+        @include breakmax($tablet) {
+          @include font-size(16);
+          @include line-height(16, 20);
+        }
+      }
+
+      p {
+        margin: 0 0 30px;
+        @include breakmax($tablet) {
+          @include font-size(16);
+          @include line-height(16, 20);
+        }
+        @include breakmax($mobile) {
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+
+  &__faq {
+    padding: 50px 0;
+    background-color: $white;
+
+    &__container {
+      @include container();
+    }
+
+    &__copy {
+      #collapse,
+      #expand {
+        display: inline-block;
+        @include font-medium;
+        @include font-size(17);
+        @include line-height(17, 21);
+        text-decoration: underline;
+        color: #003C4B;
+        margin-bottom: 40px;
+        padding: 0;
+        background-color: $white;
+        border: 0;
+        border-radius: 0;
+        appearance: none;
+
+        &.active {
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: none;
+            cursor: default;
+          }
+        }
+
+        &:hover {
+          outline: 0;
+          text-decoration: none;
+        }
+
+        &:focus {
+          outline: 1px solid $orange-primary;
+
+          &.active,
+          &:active {
+            outline: 0;
+          }
+        }
+      }
+
+      #expand {
+        position: relative;
+      }
+
+      .divider {
+        display: inline-block;
+        width: 1px;
+        height: 25px;
+        margin: 0 10px;
+        vertical-align: -7px;
+        background-color: $dark-blue-primary;
+      }
+
+      h2 {
+        margin: 0 0 25px;
+      }
+
+      h3 {
+        margin: 60px 0 30px;
+        @include breakmax($mobile) {
+          @include font-size(24);
+          @include line-height(24, 29);
+        }
+
+        &:first-of-type {
+          margin-top: 0;
+        }
+      }
+
+      .faq {
+        margin-bottom: 40px;
+        @include breakmax($mobile) {
+          margin-bottom: 30px;
+        }
+      }
+
+      .question {
+        position: relative;
+        display: block;
+        height: auto;
+        @include font-bold;
+        @include font-size(22);
+        @include line-height(22, 28);
+        text-align: left;
+        color: $black;
+        background-color: $white;
+        margin: 30px 0 0;
+        padding: 0 0 0 60px;
+        border: 0;
+        border-radius: 0;
+        appearance: none;
+        padding-bottom: 2rem;
+
+        @include breakmax($mobile) {
+          @include font-size(18);
+          @include line-height(18, 24);
+          padding: 0 0 0 35px;
+        }
+
+        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+          min-height: 40px;
+          min-width: 41px;
+        }
+
+        &:hover {
+          outline: 0;
+
+          &::before {
+            content: url("../images/icon-arrow-black-up.jpg");
+            @include breakmax($mobile) {
+              content: url("../images/icon-arrow-black-up-mobile.jpg");
+            }
+          }
+        }
+
+        &:focus {
+          outline: 1px solid $orange-primary;
+          outline-offset: 9px;
+
+          &.active,
+          &:active {
+            outline: 0;
+          }
+        }
+
+        &::before {
+          content: url("../images/icon-arrow-orange-up.jpg");
+          position: absolute;
+          top: -5px;
+          left: 0;
+          display: block;
+          width: 40px;
+          height: 40px;
+          transform: rotate(90deg);
+          transition: transform .3s ease;
+
+          @include breakmax($mobile) {
+            content: url("../images/icon-arrow-orange-up-mobile.jpg");
+            top: 0;
+            width: 24px;
+            height: 24px;
+          }
+
+          @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+            top: 0;
+            left: 1px;
+          }
+        }
+      }
+
+      .open {
+
+        &::before {
+          transform: rotate(180deg);
+        }
+
+        &:hover {
+          &::before {
+            content: url("../images/icon-arrow-black-up.jpg");
+
+            @include breakmax($mobile) {
+              content: url("../images/icon-arrow-black-up-mobile.jpg");
+            }
+          }
+        }
+      }
+
+      .answer {
+        display: none;
+
+        p {
+          @include font-size(16);
+          @include line-height(16, 20);
+          margin: 10px 0 0 60px;
+          @include breakmax($mobile) {
+            margin: 10px 0 0 35px;
+          }
+        }
+      }
+
+      &__eligibility {
+        @include breakmax($mobile) {
+          text-align: center;
+        }
+        .btn {
+          margin-top: 20px;
+          @include breakmax($mobile) {
+            margin: 20px auto 0 auto;
+          }
+        }
+      }
+    }
+  }
+  div[class*="__copy"]{
+	  @include section_padding();
+  }
+}

@@ -1,0 +1,51 @@
+.cookies {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: none;
+    width: 100vw;
+    padding: 30px 0;
+    background-color: $dark-blue-primary;
+    z-index: 999;
+
+    &.hide {
+        display: none;
+    }
+
+    &__close {
+        position: absolute;
+        top: -75px;
+        right: -75px;
+        background-color: transparent;
+        border: 0;
+        border-radius: 0;
+        appearance: none;
+
+        @include breakmax($header-mobile) {
+            right: 0;
+        }
+
+        @include breakmax($mobile) {
+            top: -145px;
+            left: calc(50% - 30px);
+            padding: 65px 0;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        svg {
+            width: 60px;
+        }
+    }
+
+    &__container {
+        position: relative;
+        @include container(200px, 75px, 30px, 30px);
+
+        p {
+            color: $white;
+        }
+    }
+}

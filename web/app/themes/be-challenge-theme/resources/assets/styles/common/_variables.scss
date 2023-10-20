@@ -1,0 +1,84 @@
+//
+// Component:       Variables
+// Description:     Defines all color and style related values as variables
+//                  to allow easy customization for the most common cases.
+//
+// ========================================================================
+// ========================================================================
+// Component: Variables
+// ========================================================================
+// Colors
+$white: #FFF;
+$black: #000;
+$orange: orange;
+
+$dark-blue-primary: #333;
+$dark-blue-1: #536879;
+$dark-blue-2: #6A8992;
+$dark-blue-3: #9BB1B6;
+$dark-blue-4: #CDD8DB;
+$dark-blue-5: #6E8495;
+
+$yellow-primary: #E3D944;
+$yellow-1: #FCF9DF;
+
+$orange-primary: #F26D0B;
+$orange-1: #FF9578;
+$orange-2: #FFB9A6;
+$orange-3: #FFDCD2;
+
+$gray-primary: #687172;
+$gray-1: #A4AAAA;
+$gray-2: #C3C6C7;
+$gray-3: #E1E3E3;
+
+// $green-primary: #009894;
+$green-primary: $orange;
+// $green-1: #00807B;
+$green-1: $orange;
+$green-2: #66C1BF;
+$green-3: #86D8D5;
+$green-4: #C4EBEB;
+
+$lime-primary: #99CA3C;
+$lime-1: #C2DF8A;
+$lime-2: #D6EAB1;
+$lime-3: #EBF4D8;
+
+$purple-primary: #60003B;
+$purple-1: #A06689;
+$purple-2: #C697B2;
+$purple-3: #DFCCD8;
+
+$aqua-primary: #7CCCBD;
+$aqua-1: #B0E0D7;
+// $aqua-2: #CBEBE5;
+$aqua-2: lighten($orange, 45);
+$aqua-3: #E5F5F2;
+
+$footer-border: #4E575E;
+
+// base
+$base-font-size: 20;
+$base-line-height: 28;
+
+// containers
+// $container-width: 1380px;
+$container-width: 1100px;
+$container-desktop-padding: 150px;
+$container-laptop-padding: 75px;
+$container-tablet-padding: 20px;
+$container-mobile-padding: 20px;
+
+// $breakpoints
+$header-mobile: 1330px;
+
+$mobile: 568px;
+$tablet: 834px;
+$laptop: 1024px;
+$desktop: 1440px;
+$widescreen: 1441px;
+
+// New
+$gap: 1rem;
+$header-height: 70px;

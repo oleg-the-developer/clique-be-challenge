@@ -1,0 +1,28 @@
+//
+// Name:            Fonts
+//
+// Description:     Contains all fonts
+//
+// ========================================================================
+// Component: Fonts
+// ========================================================================
+
+@import url("https://use.typekit.net/yxk5sun.css");
+
+@mixin font-bold {
+	font-family: proxima-nova, sans-serif;
+	font-style: normal;
+	font-weight: 700;
+}
+
+@mixin font-medium {
+	font-family: proxima-nova, sans-serif;
+	font-style: normal;
+	font-weight: 500;
+}
+
+@mixin font-regular {
+	font-family: proxima-nova, sans-serif;
+	font-style: normal;
+	font-weight: 400;
+}

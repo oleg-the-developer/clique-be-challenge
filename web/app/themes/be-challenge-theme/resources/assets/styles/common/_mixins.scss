@@ -1,0 +1,97 @@
+//
+// Name:            Mixins
+//
+// Description:     Contains all transform styles
+//
+
+
+// ========================================================================
+// Component: Transforms
+// ========================================================================
+
+$browser-context: 16; // Default
+
+
+$section-padding: 4rem;
+@mixin section_padding($padding: $section-padding){
+  padding-top: $section-padding;
+  padding-bottom: $section-padding;
+}
+
+
+@function em($pixels, $context: $browser-context) {
+    @return #{$pixels/$context}em;
+}
+
+// convert font size px to em
+@mixin font-size($font-size) {
+	font-size: ($font-size / 16) * 1rem;
+}
+
+// convert leading to line height
+@mixin line-height($font-size, $leading) {
+	line-height: ($leading / $font-size);
+}
+
+// breakpoints
+@mixin breakmax($width) {
+	@media screen and (max-width: $width) {
+		@content;
+	}
+}
+
+@mixin breakmin($width) {
+	@media screen and (min-width: $width) {
+		@content;
+	}
+}
+
+// browser queries
+@mixin ms-edge {
+	@supports (-ms-ime-align:auto) {
+	    @content;
+	}
+}
+
+// containers
+
+// include px in value; i.e., @include container(50px)
+// @mixin container(
+// $desktop-padding: $container-desktop-padding,
+// $laptop-padding: $container-laptop-padding,
+// $tablet-padding: $container-tablet-padding,
+// $mobile-padding: $container-mobile-padding) {
+// 	width: calc(100% - #{$desktop-padding * 2});
+// 	max-width: calc(#{$container-width} - #{$desktop-padding * 2});
+// 	margin: 0 auto;
+
+// 	@include breakmax($laptop) {
+// 		width: calc(100% - #{$laptop-padding * 2});
+// 	}
+
+// 	@include breakmax($header-mobile) {
+// 		width: calc(100%);
+//     max-width: 100%;
+//     padding: 0 40px;
+// 	}
+
+// 	@include breakmax($mobile) {
+// 		width: calc(100% - 0px);
+// 	}
+// }
+
+@mixin container-full {
+	width: calc(100% - #{$gap * 2});
+	padding-left: $gap;
+	padding-right: $gap;
+	max-width: $container-width;
+	margin: 0 auto;
+}
+
+@mixin container(
+	$desktop-padding: $container-desktop-padding,
+	$laptop-padding: $container-laptop-padding,
+	$tablet-padding: $container-tablet-padding,
+	$mobile-padding: $container-mobile-padding){
+	@include container-full;
+}

@@ -1,0 +1,98 @@
+//
+// Name:            Base
+//
+// Description:     Contains all base styles, including basic resets
+//
+// ========================================================================
+// Component
+// ========================================================================
+
+body {
+	position: relative;
+	@include font-medium;
+	color: $dark-blue-primary;
+	font-size: 20px;
+	background-color: $yellow-1;
+	-webkit-font-smoothing: antialiased;
+
+	&.fixed {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		overflow: hidden;
+	}
+}
+
+section {
+	position: relative;
+}
+
+h1 {
+	@include font-bold;
+	@include font-size(48);
+	@include line-height(48, 58);
+
+	@include breakmax($mobile) {
+		@include font-size(30);
+		@include line-height(30, 37);
+	}
+}
+
+h2 {
+	@include font-bold;
+	@include font-size(36);
+	@include line-height(36, 44);
+
+	@include breakmax($mobile) {
+		@include font-size(28);
+		@include line-height(28, 34);
+	}
+}
+
+h3 {
+	@include font-regular;
+	@include font-size(32);
+	@include line-height(32, 39);
+
+	@include breakmax($mobile) {
+		@include font-size(24);
+		@include line-height(24, 29);
+	}
+}
+
+p {
+	@include line-height(20, 28);
+
+	@include breakmax($mobile) {
+		@include font-size(16);
+		@include line-height(16, 20);
+	}
+}
+
+// accessibility
+.visually-hidden {
+	position: absolute !important;
+	top: -9999px !important;
+	left: -9999px !important;
+}
+
+.cookie-notice-container {
+	display: none!important;
+}
+
+
+h1, h2, h3, h4, h5{
+	margin-bottom: .5em;
+}
+
+p, ol, ul{
+	margin-bottom: 1em;
+	font-size: 1.25rem;
+}
+ul, ol{
+	li{
+		margin-bottom: .5em;
+	}
+}

@@ -1,0 +1,386 @@
+//
+// Name:            Header
+//
+// Description:     Contains all header styles
+//
+// ========================================================================
+// Component: Header
+// ========================================================================
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: $header-height;
+  z-index: 801;
+  // background-color: $dark-blue-primary;
+  background-color: $dark-blue-primary;
+  transition: top 0.2s ease;
+  @include breakmax($header-mobile) {
+    height: $header-height;
+  }
+
+  &__top {
+    position: relative;
+    height: 40px;
+    background-color: $dark-blue-primary;
+
+    &__container {
+      @include container();
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: $header-height;
+    }
+
+    &__social {
+      ul {
+        list-style: none;
+        margin: 5px 0 0 -5px;
+        padding: 0;
+
+        @media (max-width: 581px) {
+          display: flex;
+        }
+      }
+
+      li {
+        display: inline-block;
+        padding: 0 3px;
+
+        a {
+          position: relative;
+          display: block;
+          width: 26px;
+          height: 26px;
+          padding: 6px;
+          background-color: $white;
+          border: 2px solid $dark-blue-primary;
+          border-radius: 50%;
+          transition: border-color 0.3s ease;
+
+          &:hover {
+            border: 2px solid $orange-primary;
+            outline: 0;
+          }
+
+          &:focus {
+            outline: 1px solid $orange-primary;
+
+            &.active,
+            &:active {
+              outline: 0;
+            }
+          }
+
+          svg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: auto;
+            max-width: 16px;
+            height: auto;
+            max-height: 16px;
+          }
+        }
+      }
+    }
+
+    &__lang {
+      display: block;
+    }
+  }
+
+  //WPML dropdown styling
+  .wpml-ls-statics-shortcode_actions {
+    display: flex !important;
+    justify-content: flex-end;
+  }
+
+  .wpml-ls-legacy-dropdown {
+    @media (max-width: 581px) {
+      width: auto;
+    }
+  }
+
+  .wpml-ls-legacy-dropdown > ul {
+    max-width: 182px !important;
+    min-width: 182px !important;
+  }
+
+  .wpml-ls-legacy-dropdown a {
+    display: flex !important;
+    align-items: center !important;
+    font-size: 14px !important;
+    color: #fff !important;
+    height: 30px !important;
+    border: none !important;
+    background-color: $dark-blue-1;
+    &:hover {
+      background: $dark-blue-2;
+    }
+  }
+
+  .wpml-ls-item:not(:first-child) {
+    position: relative;
+    &:after {
+      position: absolute;
+      top: -1px;
+      left: 15px;
+      content: '';
+      width: 90%;
+      height: 1px;
+      background: $dark-blue-5;
+    }
+  }
+
+  .wpml-ls-legacy-dropdown .wpml-ls-current-language:hover > a {
+    background: $dark-blue-2;
+    &.wpml-ls-item-toggle:after {
+      transform: rotate(0deg);
+      top: calc(50% - 4px);
+    }
+  }
+
+  .wpml-ls-legacy-dropdown a.wpml-ls-item-toggle {
+    border-radius: 5px !important;
+  }
+
+  .wpml-ls-last-item a {
+    border-radius: 0px 0px 5px 5px;
+  }
+
+  .wpml-ls-legacy-dropdown .wpml-ls-current-language:hover .wpml-ls-sub-menu {
+    padding-top: 3px;
+    border: none;
+  }
+
+  .wpml-ls-legacy-dropdown a.wpml-ls-item-toggle:after {
+    content: '';
+    vertical-align: middle;
+    display: inline-block;
+    border: .35em solid transparent;
+    border-top: .5em solid;
+    position: absolute;
+    right: 10px;
+    top: calc(50% - 8px);
+    transform: rotate(-90deg);
+  }
+
+  .wpml-ls-display {
+    display: none;
+  }
+
+  &__main {
+    width: 100%;
+    height: $header-height;
+    background-color: $dark-blue-primary;
+    transition: top 0.3s ease;
+    z-index: 850;
+    @include breakmax($header-mobile) {
+      height: 70px;
+      background-color: $dark-blue-primary;
+      overflow: hidden;
+    }
+
+    &.is-active {
+      @include breakmax($header-mobile) {
+        overflow: visible;
+      }
+    }
+
+    &__container {
+      position: relative;
+      @include container();
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+      z-index: 10;
+    }
+
+    &__logo {
+      svg, img {
+        width: 100px;
+        // @include breakmax(1100px) {
+        //   width: 165px;
+        // }
+        // @include breakmax(900px) {
+        //   width: 150px;
+        // }
+      }
+    }
+
+    &__mobile-toggle {
+      display: none;
+      @include breakmax($header-mobile) {
+        display: block;
+        margin-right: -15px;
+      }
+
+      .hamburger-box {
+        width: 34px;
+      }
+
+      .hamburger-inner,
+      .hamburger-inner::after,
+      .hamburger-inner::before {
+        width: 34px;
+        background-color: $orange-primary;
+      }
+    }
+
+    &__nav {
+      position: relative;
+      @include breakmax($header-mobile) {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: calc(100% + 40px);
+        height: 0;
+        text-align: center;
+        margin: 0 -20px;
+        padding: 30px 0 65px;
+        background-color: $dark-blue-primary;
+        transition: height 0.6s ease;
+        overflow: hidden;
+        z-index: -10;
+
+        &.is-active {
+          height: 100vh;
+          overflow: auto;
+        }
+
+        &:after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -20px;
+          display: block;
+          width: calc(100% + 40px);
+          height: 100%;
+          background-color: $dark-blue-primary;
+          z-index: -1;
+        }
+      }
+
+      nav {
+        display: inline-block;
+        @include breakmax($header-mobile) {
+          display: block;
+        }
+      }
+
+      ul {
+        list-style: none;
+        margin: 0 0 0 0;
+        padding: 0;
+        @include breakmax($tablet) {
+          margin: 0;
+        }
+      }
+
+      li {
+        display: inline-block;
+        vertical-align: middle;
+        max-width: 165px;
+        margin: 0;
+        @include breakmax($header-mobile) {
+          display: block;
+          max-width: 100%;
+
+          &::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 1px;
+            background: $footer-border;
+          }
+        }
+
+        a {
+          color: white;
+          text-transform: uppercase;
+          font-weight: bold;
+          display: block;
+          @include font-size(16);
+          @include line-height(16, 20);
+          padding: 0 18px;
+          transition: font-weight 0.3s ease;
+          @include breakmax(1100px) {
+            padding: 0 10px;
+          }
+          @include breakmax(900px) {
+            padding: 0 5px;
+          }
+          @include breakmax($header-mobile) {
+            @include font-size(24);
+            @include line-height(24, 29);
+            padding: 35px 0;
+          }
+
+          &::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 5px;
+            background-color: transparent;
+            transition: background-color 0.3s ease;
+            @include breakmax($header-mobile) {
+              display: none;
+            }
+          }
+
+          &.current,
+          &:hover {
+            text-shadow: 0 0 0.05px black;
+            outline: 0;
+            @include breakmax($header-mobile) {
+              @include font-medium;
+            }
+
+            &::after {
+              content: '';
+              display: block;
+              width: 100%;
+              height: 5px;
+              background-color: $orange-primary;
+              @include breakmax($header-mobile) {
+                display: none;
+              }
+            }
+          }
+
+          &:focus {
+            outline: 1px solid $orange-primary;
+
+            &.active,
+            &:active {
+              outline: 0;
+            }
+          }
+        }
+      }
+
+      p {
+        display: none;
+        @include breakmax($header-mobile) {
+          position: relative;
+          display: block;
+          margin-top: 20px;
+          opacity: 1;
+        }
+      }
+
+      .btn {
+        margin-left: 18px;
+        @include breakmax($header-mobile) {
+          margin-top: 45px;
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}
